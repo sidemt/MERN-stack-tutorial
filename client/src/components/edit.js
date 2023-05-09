@@ -17,7 +17,7 @@ export default function Edit() {
   useEffect(() => {
     async function fetchData() {
       const id = params.id.toString();
-      const response = await fetch(`http://localhost:5050/record/${id}`);
+      const response = await fetch(`${process.env.REACT_APP_ROOT_URL}/record/${id}`);
 
       if (!response.ok) {
         const message = `An error has occurred: ${response.statusText}`;
@@ -56,7 +56,7 @@ export default function Edit() {
     };
 
     // This will send a patch request to update the data in the database.
-    await fetch(`http://localhost:5050/record/${params.id}`, {
+    await fetch(`${process.env.REACT_APP_ROOT_URL}/record/${params.id}`, {
       method: "PATCH",
       body: JSON.stringify(editedPerson),
       headers: {

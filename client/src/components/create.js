@@ -27,7 +27,7 @@ export default function Create() {
     const newPerson = { ...form };
 
     // This will send a post request to create the data in the database.
-    await fetch("http://localhost:5050/record", {
+    await fetch(`${process.env.REACT_APP_ROOT_URL}/record`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
